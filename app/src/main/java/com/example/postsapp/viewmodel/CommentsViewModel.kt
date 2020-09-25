@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class CommentsViewModel(val commentsRepository: CommentsRepository) : ViewModel() {
     var commentsLiveData=MutableLiveData<List<Comment>>()
     var commentsFailedLiveData=MutableLiveData<String>()
-    fun getPosts(){
+    fun getComments(){
         viewModelScope.launch{
             val response =commentsRepository.getComments()
             if (response.isSuccessful){

@@ -11,6 +11,7 @@ import com.example.postsapp.repository.CommentsRepository
 import com.example.postsapp.viewmodel.CommentsViewModel
 import com.example.postsapp.viewmodel.CommentsViewModelFactory
 import kotlinx.android.synthetic.main.activity_comments.*
+import kotlinx.android.synthetic.main.row_item_comments.*
 
 class CommentsActivity : AppCompatActivity() {
     lateinit var commentsViewModel: CommentsViewModel
