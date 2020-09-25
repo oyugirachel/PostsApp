@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.postsapp.models.Comment
 import com.example.postsapp.models.Post
 
 class PostAppDatabase {
-    @Database(entities = arrayOf(Post::class), version = 1)
+    @Database(entities = arrayOf(Post::class , Comment::class), version = 2)
     abstract class PostAppDatabase: RoomDatabase() {
         abstract fun postDao():PostsDao
 
@@ -16,7 +17,8 @@ class PostAppDatabase {
 
             fun getDBInstance(context: Context):PostAppDatabase{
                 if(dbInstance==null){
-                    dbInstance= Room.databaseBuilder(context,PostAppDatabase::class.java, "postsapp-db").build()
+                    dbInstance= Room.databaseBuilder(context,PostAppDatabase::class.java, "postsapp-db")
+                        .fallbackToDestructiveMigration().build()
                 }
                 return dbInstance as PostAppDatabase
             }

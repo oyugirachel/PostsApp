@@ -1,8 +1,10 @@
 package com.example.postsapp.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postsapp.R
 import com.example.postsapp.models.Post
@@ -26,6 +28,12 @@ class PostsAdapter(
         holder.itemView.ids.text = post.id.toString()
         holder.itemView.title.text = post.title
         holder.itemView.body.text = post.body
+        holder.itemView.btnpost.setOnClickListener {
+
+
+
+        }
+
     }
 
     inner class PostsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

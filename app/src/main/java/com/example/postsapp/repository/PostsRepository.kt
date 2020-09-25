@@ -24,9 +24,11 @@ class PostsRepository {
 
     suspend fun savePosts(postList: List<Post>) = withContext(Dispatchers.IO) {
         val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
-       postList.forEach {
-           database.postDao().InsertPost(post)
-       }
+        val postDao=database.postsDao()
+        postList.forEach { post->
+            postDao.insertPost(post)
+        }
+
 
         }
     fun getDbPosts():LiveData<List<Post>>{

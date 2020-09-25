@@ -12,11 +12,11 @@ import com.example.postsapp.models.Post
 @Dao
 interface CommentsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCourse(comment: Comment)
+    fun insertComment(comment: Comment)
 
     @Query("SELECT * FROM comments")
-    fun getPosts(): LiveDataScope<List<Post>>
+    fun getComments(): LiveDataScope<List<Comment>>
 
     @Query("SELECT * FROM comments WHERE id = :postId")
-    fun getPostById(postId:Int): LiveData<Post>
+    fun getPostById(postId:Int): LiveData<Comment>
 }
