@@ -1,5 +1,6 @@
 package com.example.postsapp.repository
 
+import androidx.lifecycle.LiveData
 import com.example.postsapp.api.ApiClient
 import com.example.postsapp.api.ApiInterface
 import com.example.postsapp.database.PostAppDatabase
@@ -28,6 +29,14 @@ class PostsRepository {
        }
 
         }
+    fun getDbPosts():LiveData<List<Post>>{
+        val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
+        return database.postDao().getPosts()
+
+    }
+    fun getPostById(postId:Int):LiveData<Post>{
+        val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
+        return database.postDao().getPostById(postId)
     }
 
 
