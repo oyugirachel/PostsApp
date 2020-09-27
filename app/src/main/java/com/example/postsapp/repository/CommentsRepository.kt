@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.postsapp.api.ApiClient
 import com.example.postsapp.api.ApiInterface
 import com.example.postsapp.database.PostAppDatabase
+import com.example.postsapp.database.PostAppDatabase.PostAppDatabase.Companion.getDBInstance
 import com.example.postsapp.models.Comment
 import com.example.postsapp.models.Post
 import com.example.postsapp.viewmodel.PostsApp
@@ -18,7 +19,7 @@ class CommentsRepository {
         return@withContext response
     }
     suspend fun saveComments(commentList: List<Comment>) = withContext(Dispatchers.IO) {
-        val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
+        val database = PostAppDatabase.getDBInstance(PostsApp.appContext)
         val commentDao=database.commentsDao()
         commentList.forEach { comment->
             commentDao.insertComment(comment)

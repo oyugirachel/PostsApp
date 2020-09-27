@@ -25,7 +25,7 @@ class CommentsActivity : AppCompatActivity() {
         commentsViewModel=
             ViewModelProvider(this, commentsViewModelFactory).get(CommentsViewModel::class.java)
 
-        commentsViewModel.getPosts()
+        commentsViewModel.getComments()
 
         commentsViewModel.commentsLiveData.observe(this, Observer { commentsList->
             rvComments.apply{

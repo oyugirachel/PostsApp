@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.postsapp.models.Comment
 import com.example.postsapp.models.Post
+import com.example.postsapp.models.ToDo
 
 class PostAppDatabase {
-    @Database(entities = arrayOf(Post::class , Comment::class), version = 2)
+    @Database(entities = arrayOf(Post::class , Comment::class,ToDo::class), version = 3)
     abstract class PostAppDatabase: RoomDatabase() {
         abstract fun postDao():PostsDao
 
