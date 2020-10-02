@@ -19,7 +19,7 @@ class ToDosRepository {
         val response= apiInterface.getToDo()
         return@withContext response
     }
-    suspend fun saveComments(commentList: List<ToDo>) = withContext(Dispatchers.IO) {
+    suspend fun saveTodos(todosList: List<ToDo>) = withContext(Dispatchers.IO) {
         val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
         val todoDao=database.todoDao()
         todosList.forEach { todo->
