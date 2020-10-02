@@ -26,7 +26,7 @@ class ToDosRepository {
             todoDao.insertToDo(todo)
         }
     }
-    fun getDbPosts(): LiveData<List<ToDo>> {
+    fun getDbToDos(): LiveData<List<ToDo>> {
         val database = PostAppDatabase.getDbInstance(PostsApp.appContext)
         return database.todoDao().getToDos()
 
