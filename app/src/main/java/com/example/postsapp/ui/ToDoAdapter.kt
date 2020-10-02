@@ -24,12 +24,12 @@ class ToDoAdapter(
 
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         var todo = todos[position]
-        holder.rowView.todoCheckBox.text=todo.title
-        if (todo.completed==true){
-            holder.rowView.todoCheckBox.isChecked=true
-        }else{
-            holder.rowView.todoCheckBox.isChecked=false
-        }
+//        holder.rowView.todoCheckBox.text=todo.title
+//        if (todo.completed==true){
+//            holder.rowView.todoCheckBox.isChecked=true
+//        }else{
+//            holder.rowView.todoCheckBox.isChecked=false
+//        }
         holder.itemView.completed.text = todo.completed.toString()
         holder.itemView.ids.text = todo.id.toString()
         holder.itemView.title.text = todo.title.toString()
