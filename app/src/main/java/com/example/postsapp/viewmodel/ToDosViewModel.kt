@@ -1,5 +1,6 @@
 package com.example.postsapp.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +11,7 @@ import com.example.postsapp.repository.ToDosRepository
 import kotlinx.coroutines.launch
 
 class ToDosViewModel(val toDosRepository: ToDosRepository) : ViewModel() {
-    var todosLiveData=MutableLiveData<List<ToDo>>()
+  lateinit  var todosLiveData: LiveData<List<ToDo>>
     var todosFailedLiveData=MutableLiveData<String>()
     fun getToDos(){
         viewModelScope.launch{
